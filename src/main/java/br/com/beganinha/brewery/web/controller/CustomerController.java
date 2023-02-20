@@ -51,19 +51,4 @@ public class CustomerController {
         customerService.deleteById(customerId);
 
     }
-
-    /**
-     * This Method is invoked automatically by Spring to handle all exception has been thrown by Bean Validation and has been validated by @Valid annotation
-     * @param e
-     * @return
-     */
-    @ExceptionHandler(ConstraintViolationException.class)
-    public ResponseEntity<List> validationErrorHandler(ConstraintViolationException e) {
-        List<String> errors = new ArrayList<>(e.getConstraintViolations().size());
-        e.getConstraintViolations().forEach(constraintViolation -> {
-            errors.add(constraintViolation.getPropertyPath() + " : " + constraintViolation.getMessage());
-        });
-
-        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
-    }
 }
