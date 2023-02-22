@@ -21,6 +21,6 @@ public class Beer {
     private Long upc;
 
     private Timestamp createdDate;
-    private Timestamp lastUpdateDate;
+    private Timestamp lastUpdatedDate;
 
 }
